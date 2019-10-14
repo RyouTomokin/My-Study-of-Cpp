@@ -42,8 +42,6 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	//drawBox.CtrlerUpdate(wnd);
-
 	if (gameIsStart)
 	{
 		if (!gameIsOver)
@@ -114,18 +112,6 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	//drawBox.DrawIt(gfx);
-
-	//for (int y = 0; y < brd.Get_Heigth(); y++)
-	//{
-	//	for (int x = 0; x < brd.Get_Width(); x++)
-	//	{
-	//		Location loc = { x,y };
-	//		Color c(x * 10, y * 10, 255);
-	//		brd.DrawCell(loc, c);
-	//	}
-	//}
-
 	if (gameIsStart)
 	{
 		snake.Draw(brd);
