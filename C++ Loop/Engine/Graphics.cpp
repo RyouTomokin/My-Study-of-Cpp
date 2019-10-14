@@ -340,6 +340,34 @@ void Graphics::DrawRectXY(int x0, int y0, int x1, int y1, Color c)
 	}
 }
 
+float Graphics::Clamp(float n, float max, float min)
+{
+	if (n > max)return max;
+	if (n < min)return min;
+	return n;
+}
+
+void Graphics::DrawCircle(float x, float y, float r, Color c)
+{
+	int x1 = Graphics::Clamp(x - r, ScreenWidth, 0);
+	int y1 = Graphics::Clamp(y - r, ScreenHeight, 0);
+	int x2 = Graphics::Clamp(x + r, ScreenWidth, 0);
+	int y2 = Graphics::Clamp(y + r, ScreenHeight, 0);
+
+	for (int i = x1 + 1; i < x2; ++i)
+	{
+		for (int j = y1 + 1; j < y2; ++j)
+		{
+			int a = std::pow(std::abs(i - x), 2);
+			int b = std::pow(std::abs(j - y), 2);
+			if (a + b <= r * r)
+			{
+				PutPixel(i, j, c);
+			}
+		}
+	}
+}
+
 //////////////////////////////////////////////////
 //           Graphics Exception
 Graphics::Exception::Exception(HRESULT hr, const std::wstring& note, const wchar_t* file, unsigned int line)

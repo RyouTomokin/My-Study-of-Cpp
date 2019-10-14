@@ -123,5 +123,8 @@ void Game::ComposeFrame()
 		}
 		brd.DrawBorder();
 	}
-
+	else
+	{
+		gfx.DrawCircle(400, 300, 50, Colors::Yellow);
+	}
 }
