@@ -29,6 +29,7 @@
 #include "goal.h"
 #include "Walls.h"
 #include <random>
+#include "FrameTimer.h"
 
 class Game
 {
@@ -48,6 +49,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	FrameTimer ft;
 	Draw2DBox drawBox;
 	Board brd;
 	std::mt19937 rng;
